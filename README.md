@@ -24,3 +24,14 @@ Pinkython helps you memorize these assignments to develop muscle memory.
 - Sit up straight with your feet flat on the floor.
 - Maintain a comfortable distance from the keyboard and monitor.
 - Keep your fingers relaxed and avoid excessive force when pressing keys.
+<<<<<<< HEAD
+=======
+
+# Usage
+- Select a programming language or the 'not a programmer' option.
+- Select a support type.
+- Start typing.
+
+# Installation
+Use and install from [TypitKeys](https://typitkeys.netlify.app)
+>>>>>>> 4c6065a45d7b9dc75365a8e2dd3f32e36e23aad5
