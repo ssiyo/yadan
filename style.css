@@ -88,20 +88,6 @@ pre#to-type {
 	border:2px solid black;
 }
 
-a {
-	text-decoration: none;
-	display: flex;
-	margin-bottom: 2em;
-	color:black;
-}
-a img{
-	width: 24px;
-	padding: 0.25em;
-	border-radius: 50%;
-}
-a:hover img {
-	box-shadow: 0 0 0 2px black;
-}
 img {
 	width:24px;
 }

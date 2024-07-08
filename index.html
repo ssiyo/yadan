@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pinkython</title>
+        <title>Yadan</title>
         <link rel="icon" type="image/png" href="icon.png" />
         <link rel="manifest" href="manifest.json" />
         <link rel="stylesheet" href="style.css" />
+        <style>
+            #sign {
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                border: 1px solid grey;
+                border-radius: 50%;
+                padding: 0.5em;
+                width: fit-content;
+            }
+            #sign[class="open"] {
+                border-radius: 0;
+            }
+
+            #sign[class="open"] img {
+                width: fit-content;
+                padding-right: 0.5em;
+                border-right: 1px solid black;
+            }
+            #sign[class="open"] a {
+                color: black;
+                text-decoration: none;
+                font-family: consolas;
+            }
+            #sign > div {
+                display: none;
+            }
+            #sign[class="open"] > div {
+                display: flex;
+                align-items: center;
+                gap: 1.5em;
+            }
+        </style>
     </head>
 
     <body>
-        <a href="https://github.com/ssiyo/pinkython" target="_blank">
-            <img src="svg/build_24dp.svg" />
-        </a>
-
+        <div id="sign">
+            <img onclick="toggleSign()" src="svg/info_24dp.svg" />
+            <div>
+                <a href="https://github.com/ssiyo" target="_blank"> ssiyo </a>
+                <a href="https://github.com/ssiyo/yadan/issues/new" target="_blank">
+                    feature request
+                </a>
+                <a href="https://github.com/ssiyo/yadan" target="_blank">
+                    codebase
+                </a>
+            </div>
+        </div>
         <div id="config">
             <input id="show-keyboard" type="checkbox" checked />
             <label for="show-keyboard">Show keyboard</label>
@@ -59,6 +100,10 @@
         </div>
         <div id="keyboard"></div>
         <script>
+            function toggleSign() {
+                const sign = document.getElementById("sign");
+                sign.classList.toggle("open");
+            }
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker
                     .register("/sw.js")
