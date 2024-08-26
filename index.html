@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yadan</title>
+        <link rel="icon" type="image/png" href="icon.png" />
+        <link rel="manifest" href="manifest.json" />
+        <link rel="stylesheet" href="font.css" />
+        <style>
+            * {
+                font-family: RobotoMono;
+                background-color: transparent;
+                color: #ddf;
+            }
+
+            body {
+                background-color: black;
+                max-width: 40em;
+                margin: 0 auto;
+            }
+            button {
+                display: block;
+                margin: 1em auto;
+                padding: 1em 5em;
+                font-size: 100%;
+                font-weight: bold;
+                text-transform: uppercase;
+                border: none;
+                color: black;
+
+                background-color: white;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: cyan;
+            }
+            #sign {
+                display: flex;
+                align-items: center;
+                gap: 1.5em;
+                border: 1px solid #333;
+                width: fit-content;
+            }
+
+            #sign a {
+                padding: 0.5em;
+                font-size: 12px;
+                text-decoration: none;
+                font-family: consolas;
+            }
+            #sign a:nth-child(even) {
+                background-color: #333;
+            }
+            #sign a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <br /><br />
+        <span>Each finger is responsible for specific keys.</span>
+        <br />
+        <span>Finger Assignments:</span>
+        <ul>
+            <li>Left pinky: A</li>
+            <li>Left ring finger: S</li>
+            <li>Left middle finger: D</li>
+            <li>Left index finger: F</li>
+            <li>Right index finger: J</li>
+            <li>Right middle finger: K</li>
+            <li>Right ring finger: L</li>
+            <li>Right pinky: ;</li>
+        </ul>
+
+        <span>Typing Posture:</span>
+        <ul>
+            <li>Sit up straight with your feet flat on the floor.</li>
+            <li>
+                Maintain a comfortable distance from the keyboard and monitor.
+            </li>
+            <li>
+                Keep your fingers relaxed and avoid excessive force when
+                pressing keys.
+            </li>
+        </ul>
+
+        <label for="show-keyboard">
+            <input id="show-keyboard" type="checkbox" checked />
+            Include visual aid</label
+        >
+        <button onclick="startPractice()">type</button>
+        <div id="sign">
+            <a href="https://github.com/ssiyo" target="_blank"> ssiyo </a>
+            <a href="https://github.com/ssiyo/yadan/issues/new" target="_blank">
+                feature request
+            </a>
+            <a href="https://github.com/ssiyo/yadan" target="_blank">
+                codebase
+            </a>
+        </div>
+
+        <script>
+            function startPractice() {
+                sessionStorage.setItem(
+                    "slowMode",
+                    document.getElementById("show-keyboard").checked
+                );
+                location.href = "practice.html";
+                
+            }
+
+            // COMMENTED FOR TESTING
+            // if ("serviceWorker" in navigator) {
+            //     navigator.serviceWorker
+            //         .register("/sw.js")
+            //         .then((registration) => {
+            //             console.log(
+            //                 "Service Worker registered with scope:",
+            //                 registration.scope
+            //             );
+            //         })
+            //         .catch((error) => {
+            //             console.error(
+            //                 "Service Worker registration failed:",
+            //                 error
+            //             );
+            //         });
+            // }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yadan</title>
+        <link rel="icon" type="image/png" href="icon.png" />
+        <link rel="manifest" href="manifest.json" />
+        <link rel="stylesheet" href="font.css" />
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            .hidden {
+                display: none;
+            }
+            #rhand,
+            #lhand {
+                background-color: transparent;
+                width: auto;
+                position: fixed;
+                top: 21em;
+                animation: blink 1s infinite;
+            }
+            @keyframes blink {
+                50% {
+                    opacity: 0.5;
+                }
+            }
+            #rhand {
+                left: 50%;
+                transform: translateX(-5em);
+            }
+            #lhand {
+                right: 50%;
+                transform: translateX(2em);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="current-record">
+            <span>
+                <img src="svg/speed.svg" />
+                <span><span id="speed">0</span> CPM</span>
+            </span>
+            |
+            <span>
+                <img src="svg/grade.svg" />
+                <span> <span id="accuracy">0</span>%</span>
+            </span>
+            |
+            <span>
+                <img src="svg/menu.svg" />
+                <span><span id="lines-count">0</span></span>
+            </span>
+        </h1>
+
+        <h1 id="best">
+            <span>
+                <img src="svg/speed.svg" />
+                <span><span id="best-speed">0</span> CPM</span>
+            </span>
+            |
+            <span>
+                <img src="svg/grade.svg" />
+                <span> <span id="best-accuracy">0</span>%</span>
+            </span>
+            |
+            <span>
+                <img src="svg/menu.svg" />
+                <span><span id="best-lines-count">0</span></span>
+            </span>
+        </h1>
+
+        <div id="to-type-container">
+            <pre id="to-type"></pre>
+        </div>
+        <div id="keyboard"></div>
+
+        <img id="rhand" src="hand/rhand.png" />
+        <img id="lhand" src="hand/lhand.png" />
+
+        <script src="main.js"></script>
+    </body>
+</html>

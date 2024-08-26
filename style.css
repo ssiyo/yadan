@@ -1,0 +1,175 @@
+* {
+    font-family: RobotoMono;
+    background-color: transparent;
+    color: #ddf;
+}
+
+body {
+    background-color: black;
+    max-width: 40em;
+    margin: 0 auto;
+}
+body.yah {
+    animation: yah 0.2s forwards;
+}
+body.nah {
+    animation: nah 0.2s forwards;
+}
+/* HAH is for beating the top score */
+body.hah {
+    animation: hah 0.2s forwards;
+}
+@keyframes hah {
+    50% {
+        background-color: #220;
+    }
+}
+
+@keyframes yah {
+    50% {
+        background-color: #020;
+    }
+}
+@keyframes nah {
+    50% {
+        background-color: #200;
+    }
+}
+#to-type-container {
+    display: flex;
+    min-height: 12em;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    margin: 0;
+    text-align: center;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+h1 > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+#best span,
+#best {
+    color: #009;
+}
+#best img {
+    opacity: 0.25;
+}
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid grey;
+}
+#keyboard,
+.keys-line {
+    gap: 0.1em;
+}
+.keys-line {
+    min-height: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+.keys-line span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 0;
+    font-weight: bold;
+    border: 1px solid #333;
+    opacity: 0.5;
+}
+.pinky {
+    background-color: #900;
+}
+.ring {
+    background-color: #990;
+}
+.middle {
+    background-color: #090;
+}
+.lpointer {
+    background-color: #909;
+}
+.rpointer {
+    background-color: #009;
+}
+
+span.pinky,
+span.ring,
+span.middle,
+span.lpointer,
+span.rpointer {
+    opacity: 1;
+}
+.keys-line .pressed {
+    opacity: 0.2;
+}
+
+#to-type {
+    font-size: 22px;
+    margin: 0;
+}
+#to-type .correct {
+    background-color: #050;
+    opacity: 0.5;
+}
+#to-type span.incorrect {
+    background-color: #500;
+    opacity: 0.5;
+}
+#to-type span.current {
+    border-left: 3px solid white;
+}
+#to-type span {
+    padding: 0 0.2em;
+    opacity: 1;
+}
+
+#CapsLock {
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+}
+#Tab {
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+}
+#LShift {
+    padding: 0 0.5em;
+}
+#RShift {
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+}
+#Space-bar {
+    padding-left: 6em;
+    padding-right: 6em;
+}
+#A,
+#S,
+#D,
+#F,
+#J,
+#K,
+#L,
+#\; {
+    border-color: white;
+}
+
+img {
+    min-width: 24px;
+}
+#RCtrl,
+#LCtrl,
+#RShift,
+#LShift {
+    font-size: 14px;
+}
