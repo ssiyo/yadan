@@ -1,29 +1,46 @@
-const CACHE_VERSION = "2024-07-07 10:20 PM";
+const CACHE_VERSION = "2024-08-26 1:11 PM";
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_VERSION).then((cache) => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/style.css',
-        '/main.js',
-        '/sw.js',
+          "/",
+          "/index.html",
+          "/practice.html",
+          "/style.css",
+          "/font.css",
+          "/main.js",
+          "/sw.js",
 
-        '/icon.png',
-        '/manifest.json',
+          "/icon.png",
+          "/manifest.json",
 
-        '/svg/kofi_stroke_cup.svg',
-        '/svg/grade_black_24dp.svg',
-        '/svg/backspace_black_24dp.svg',
-        '/svg/keyboard_capslock_black_24dp.svg',
-        '/svg/keyboard_return_black_24dp.svg',
-        '/svg/keyboard_tab_black_24dp.svg',
-        '/svg/menu_black_24dp.svg',
-        '/svg/space_bar_black_24dp.svg',
-        '/svg/speed_black_24dp.svg',
-        '/svg/window_black_24dp.svg',
-      ])
+          "/svg/grade.svg",
+          "/svg/backspace.svg",
+          "/svg/keyboard_capslock.svg",
+          "/svg/keyboard_return.svg",
+          "/svg/keyboard_tab.svg",
+          "/svg/menu.svg",
+          "/svg/space_bar.svg",
+          "/svg/speed.svg",
+          "/svg/grid_view.svg",
+
+          "/hand/lhand a.png",
+          "/hand/lhand d.png",
+          "/hand/lhand f.png",
+          "/hand/lhand s.png",
+          "/hand/lhand.png",
+
+          "/hand/rhand _.png",
+          "/hand/rhand j.png",
+          "/hand/rhand k.png",
+          "/hand/rhand l.png",
+          "/hand/rhand.png",
+
+          "/fonts/RobotoMono-Bold.ttf",
+          "/fonts/RobotoMono-Italic.ttf",
+          "/fonts/RobotoMono-Light.ttf",
+      ]);
     })
   );
 });
