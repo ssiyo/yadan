@@ -159,6 +159,7 @@ capsLock();
 
 const pressKeys = "`1234567890-=qwertyuiop[]asdfghjkl;'\\zxcvbnm,./";
 const pressKeysShift = '~!@#$%^&*()_+{}:"|<>?';
+
 let curLineIndex = 0;
 let lineTimer,
     linesToWrite,
@@ -170,6 +171,7 @@ let accuracySum = 0;
 let speedSum = 0;
 
 let bgColorChangeTimer;
+let confirmedReturn = 0;
 
 // events
 
@@ -221,7 +223,18 @@ document.addEventListener("keydown", (e) => {
             case "Enter":
                 byid("Enter1").classList.add("pressed");
                 byid("Enter2").classList.add("pressed");
+                // special case, for returning to home page
+                if (lineInput.length == 0) {
+                    confirmedReturn++;
+                    if (confirmedReturn >= 3) {
+                        location.href = "index.html";
+                        return;
+                    }
+                } else {
+                    confirmedReturn = 0;
+                }
                 lineCompleted();
+
                 break;
             case "Tab":
                 e.preventDefault();
@@ -292,16 +305,16 @@ document.addEventListener("keyup", (e) => {
         }
     }
 });
-const onSlowMode = sessionStorage.getItem("slowMode") == "true";
-if (!onSlowMode) {
-    byid("keyboard").style.display = "none";
-    byid("lhand").style.display = "none";
-    byid("rhand").style.display = "none";
+const visualsIncluded = sessionStorage.getItem("include-vfx") == "true";
+if (visualsIncluded) {
+    byid("keyboard").classList.remove("hidden");
+    byid("lhand").classList.remove("hidden");
+    byid("rhand").classList.remove("hidden");
 }
 
 // for generation of new lines
 lineTimer = Date.now();
-linesToWrite = [0, 0, 0].map((i) => generateSentence()).join("");
+linesToWrite = [0, 0, 0].map(() => generateSentence()).join("");
 displayTargetLines();
 
 function shiftPressed(shiftDown = true) {
@@ -334,12 +347,12 @@ function capsLock() {
     }
 }
 function bgEffect(newclass) {
-    if (!onSlowMode) return;
-    document.body.className = newclass;
-    
+    if (!visualsIncluded) return;
+    byid("to-type").className = newclass;
+
     clearTimeout(bgColorChangeTimer);
     bgColorChangeTimer = setTimeout(() => {
-        document.body.className = '';
+        byid("to-type").className = "";
     }, 200);
 }
 function newKeyPressed() {
@@ -349,15 +362,16 @@ function newKeyPressed() {
 
     if (lineInput.length) {
         const feedback =
-            lineInput[lineInput.length-1] == linesToWrite[lineInput.length-1]
+            lineInput[lineInput.length - 1] ==
+            linesToWrite[lineInput.length - 1]
                 ? "yah"
                 : "nah";
         bgEffect(feedback);
     }
 
     // change character color
-    for (let i in byid("to-type").children) {
-        let spanChild = byid("to-type").children[i];
+    for (let i in bycss("#to-type pre").children) {
+        let spanChild = bycss("#to-type pre").children[i];
         if (i >= lineInput.length) {
             spanChild.className = "";
         } else if (spanChild.textContent == lineInput[i]) {
@@ -365,16 +379,16 @@ function newKeyPressed() {
         } else {
             spanChild.className = "incorrect";
         }
-        byid("to-type").children[i] = spanChild;
+        bycss("#to-type pre").children[i] = spanChild;
     }
-    byid("to-type").children[lineInput.length].className = "current";
+    bycss("#to-type pre").children[lineInput.length].className = "current";
 
     if (lineInput.length >= linesToWrite.split("\n")[0].length) {
         lineCompleted();
         return;
     }
 
-    if (onSlowMode) {
+    if (visualsIncluded) {
         // changing finger assignments
         const nextChar = linesToWrite.split("\n")[0][lineInput.length];
         if (nextChar != " ") {
@@ -423,16 +437,15 @@ function lineCompleted() {
     displayTargetLines();
 }
 function displayTargetLines() {
-    byid("to-type").innerHTML = "";
     let newHTML = "";
     for (let c of linesToWrite) {
         if (c == "\n") {
             newHTML += "<br>";
             continue;
         }
-        newHTML += `<span>${cleanHTML(c)}</span>`;
+        newHTML += `<span>${c}</span>`;
     }
-    byid("to-type").innerHTML = newHTML;
+    bycss("#to-type pre").innerHTML = newHTML;
     // to show cursor
     newKeyPressed();
 }
@@ -445,7 +458,8 @@ function cleanHTML(htmlcode) {
 function generateSentence() {
     let gen = "";
     const basicKeys = "asdfjkl;";
-    for (let i = 0; i < 30; i++) {
+    const sentenceLength = 29;
+    for (let i = 0; i < sentenceLength; i++) {
         if (Math.random() > 0.5) {
             gen +=
                 alphabetCapsLock[
@@ -455,7 +469,7 @@ function generateSentence() {
             Math.random() < 0.4 &&
             !["", " "].includes(gen[gen.length - 1]) &&
             gen != "" &&
-            i + 1 < 30
+            i + 1 < sentenceLength
         ) {
             gen += " ";
         } else {
@@ -490,11 +504,14 @@ function calculatePerformance() {
         byid("best-lines-count").textContent = curLineIndex;
         byid("best-speed").textContent = Math.floor(speed);
         byid("best-accuracy").textContent = Math.floor(accuracy * 100);
+        sessionStorage.setItem("best-lines-count", curLineIndex);
+        sessionStorage.setItem("best-speed", Math.floor(speed));
+        sessionStorage.setItem("best-accuracy", Math.floor(accuracy * 100));
         bgEffect("hah");
     }
 
     // reset after line 60
-    if (curLineIndex > 60) {
+    if (curLineIndex >= 60) {
         curLineIndex = 0;
         accuracySum = 0;
         speedSum = 0;

@@ -1,7 +1,11 @@
+.hidden {
+    display: none !important;
+}
 * {
-    font-family: RobotoMono;
     background-color: transparent;
-    color: #ddf;
+    color: #ddd;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -9,38 +13,7 @@ body {
     max-width: 40em;
     margin: 0 auto;
 }
-body.yah {
-    animation: yah 0.2s forwards;
-}
-body.nah {
-    animation: nah 0.2s forwards;
-}
-/* HAH is for beating the top score */
-body.hah {
-    animation: hah 0.2s forwards;
-}
-@keyframes hah {
-    50% {
-        background-color: #220;
-    }
-}
 
-@keyframes yah {
-    50% {
-        background-color: #020;
-    }
-}
-@keyframes nah {
-    50% {
-        background-color: #200;
-    }
-}
-#to-type-container {
-    display: flex;
-    min-height: 12em;
-    justify-content: center;
-    align-items: center;
-}
 h1 {
     margin: 0;
     text-align: center;
@@ -58,7 +31,7 @@ h1 > span {
 }
 #best span,
 #best {
-    color: #009;
+    color: #550;
 }
 #best img {
     opacity: 0.25;
@@ -115,21 +88,55 @@ span.rpointer {
 }
 
 #to-type {
+    padding: 4em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#to-type.yah {
+    animation: yah 0.2s forwards;
+}
+#to-type.nah {
+    animation: nah 0.2s forwards;
+}
+/* HAH is for beating the top score */
+#to-type.hah {
+    animation: hah 0.2s forwards;
+}
+@keyframes hah {
+    50% {
+        background-color: rgba(255, 255, 0, 0.1);
+    }
+}
+
+@keyframes yah {
+    50% {
+        background-color: rgba(0, 255, 0, 0.1);
+    }
+}
+@keyframes nah {
+    50% {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+}
+
+#to-type pre {
     font-size: 22px;
     margin: 0;
 }
-#to-type .correct {
+#to-type pre .correct {
     background-color: #050;
     opacity: 0.5;
 }
-#to-type span.incorrect {
+#to-type pre span.incorrect {
     background-color: #500;
     opacity: 0.5;
 }
-#to-type span.current {
+#to-type pre span.current {
     border-left: 3px solid white;
 }
-#to-type span {
+#to-type pre span {
     padding: 0 0.2em;
     opacity: 1;
 }
@@ -166,6 +173,7 @@ span.rpointer {
 
 img {
     min-width: 24px;
+    min-height: 24px;
 }
 #RCtrl,
 #LCtrl,

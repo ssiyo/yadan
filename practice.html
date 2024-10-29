@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5C218RQCH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z5C218RQCH');
+        </script>
+        <!-- END OF Google tag -->
+
         <title>Yadan</title>
         <link rel="icon" type="image/png" href="icon.png" />
-        <link rel="manifest" href="manifest.json" />
         <link rel="stylesheet" href="font.css" />
         <link rel="stylesheet" href="style.css" />
         <style>
-            .hidden {
-                display: none;
-            }
             #rhand,
             #lhand {
                 background-color: transparent;
                 width: auto;
-                position: fixed;
-                top: 21em;
+                position: absolute;
                 animation: blink 1s infinite;
             }
             @keyframes blink {
@@ -25,14 +31,15 @@
             }
             #rhand {
                 left: 50%;
-                transform: translateX(-5em);
+                transform: translate(-5em, -7em);
             }
             #lhand {
                 right: 50%;
-                transform: translateX(2em);
+                transform: translate(2.5em, -7em);
             }
         </style>
-    </head>
+		<link href="app.webmanifest" rel="manifest" />
+	</head>
 
     <body>
         <h1 id="current-record">
@@ -69,13 +76,14 @@
             </span>
         </h1>
 
-        <div id="to-type-container">
-            <pre id="to-type"></pre>
+        <div id="to-type">
+            <pre></pre>
         </div>
-        <div id="keyboard"></div>
 
-        <img id="rhand" src="hand/rhand.png" />
-        <img id="lhand" src="hand/lhand.png" />
+        <div class="hidden" id="keyboard"></div>
+
+        <img class="hidden" id="rhand" src="hand/rhand.png" />
+        <img class="hidden" id="lhand" src="hand/lhand.png" />
 
         <script src="main.js"></script>
     </body>

@@ -1,14 +1,18 @@
+* {
+    font-family: RobotoMono;
+}
+
 /* Regular */
 @font-face {
     font-family: "RobotoMono";
-    src: url("fonts/RobotoMono-Light.ttf") format('truetype');
+    src: url("fonts/RobotoMono-Light.ttf") format("truetype");
     font-display: swap;
 }
 
 /* Bold */
 @font-face {
     font-family: "RobotoMono";
-    src: url("fonts/RobotoMono-Bold.ttf") format('truetype');
+    src: url("fonts/RobotoMono-Bold.ttf") format("truetype");
     font-weight: bold;
     font-display: swap;
 }
@@ -16,7 +20,7 @@
 /* Italic */
 @font-face {
     font-family: "RobotoMono";
-    src: url("fonts/RobotoMono-Italic.ttf") format('truetype');
+    src: url("fonts/RobotoMono-Italic.ttf") format("truetype");
     font-style: italic;
     font-display: swap;
 }
