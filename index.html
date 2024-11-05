@@ -105,22 +105,21 @@
             }
         </style>
         <link href="app.webmanifest" rel="manifest" />
-        <script src="register-sw.js"></script>
         <link
             rel="preload"
-            href="./fonts/RobotoMono-Bold.ttf"
+            href="fonts/RobotoMono-Bold.ttf"
             as="font"
             type="font/ttf"
         />
         <link
             rel="preload"
-            href="./fonts/RobotoMono-Italic.ttf"
+            href="fonts/RobotoMono-Italic.ttf"
             as="font"
             type="font/ttf"
         />
         <link
             rel="preload"
-            href="./fonts/RobotoMono-Light.ttf"
+            href="fonts/RobotoMono-Light.ttf"
             as="font"
             type="font/ttf"
         />
@@ -229,10 +228,12 @@
                 // get values from session
                 byid("best-lines-count").textContent =
                     sessionStorage.getItem("best-lines-count") || 0;
-                byid("best-speed").textContent =
-                    sessionStorage.getItem("best-speed") || 0;
-                byid("best-accuracy").textContent =
-                    sessionStorage.getItem("best-accuracy") || 0;
+                byid("best-speed").textContent = Math.floor(
+                    sessionStorage.getItem("best-speed") || 0
+                );
+                byid("best-accuracy").textContent = Math.floor(
+                    (sessionStorage.getItem("best-accuracy") || 0) * 100
+                );
             }
             function startPractice() {
                 sessionStorage.setItem(
@@ -243,5 +244,6 @@
             }
             updateBestScore();
         </script>
-    </body>
+    	<script src="register-sw.js"></script>
+	</body>
 </html>

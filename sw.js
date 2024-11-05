@@ -1,5 +1,4 @@
-const CACHE_VERSION = "2024-11-05 12:03";
-localStorage.setItem("CACHE_VERSION", CACHE_VERSION)
+const CACHE_VERSION = "2024-11-05 12:45";
 
 // cache files list
 const cf = [
@@ -15,31 +14,30 @@ const cf = [
 	"/sw.js",
 
 	"/icon.png",
-	"/hand/lhand a.png",
-	"/hand/lhand d.png",
-	"/hand/lhand f.png",
-	"/hand/lhand s.png",
-	"/hand/lhand.png",
-	"/hand/rhand j.png",
-	"/hand/rhand k.png",
-	"/hand/rhand l.png",
-	"/hand/rhand _.png",
-	"/hand/rhand.png",
+	"hand/lhand a.png",
+	"hand/lhand d.png",
+	"hand/lhand f.png",
+	"hand/lhand s.png",
+	"hand/lhand.png",
+	"hand/rhand j.png",
+	"hand/rhand k.png",
+	"hand/rhand l.png",
+	"hand/rhand _.png",
+	"hand/rhand.png",
 
-	"/hand_bones_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
-	"/svg/backspace.svg",
-	"/svg/grade.svg",
-	"/svg/grid_view.svg",
-	"/svg/keyboard_capslock.svg",
-	"/svg/keyboard_return.svg",
-	"/svg/keyboard_tab.svg",
-	"/svg/menu.svg",
-	"/svg/space_bar.svg",
-	"/svg/speed.svg",
+	"svg/backspace.svg",
+	"svg/grade.svg",
+	"svg/grid_view.svg",
+	"svg/keyboard_capslock.svg",
+	"svg/keyboard_return.svg",
+	"svg/keyboard_tab.svg",
+	"svg/menu.svg",
+	"svg/space_bar.svg",
+	"svg/speed.svg",
 
-	"/fonts/RobotoMono-Bold.ttf",
-	"/fonts/RobotoMono-Italic.ttf",
-	"/fonts/RobotoMono-Light.ttf",
+	"fonts/RobotoMono-Bold.ttf",
+	"fonts/RobotoMono-Italic.ttf",
+	"fonts/RobotoMono-Light.ttf",
 
 	"/app.webmanifest",
 
