@@ -1,4 +1,4 @@
-const CACHE_VERSION = "2024-10-31 01:30";
+const CACHE_VERSION = "2024-11-05 12:03";
 localStorage.setItem("CACHE_VERSION", CACHE_VERSION)
 
 // cache files list
@@ -26,6 +26,7 @@ const cf = [
 	"/hand/rhand _.png",
 	"/hand/rhand.png",
 
+	"/hand_bones_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg",
 	"/svg/backspace.svg",
 	"/svg/grade.svg",
 	"/svg/grid_view.svg",

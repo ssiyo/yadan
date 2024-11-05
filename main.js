@@ -164,7 +164,10 @@ let curLineIndex = 0;
 let lineTimer,
     linesToWrite,
     lineInput = "";
-let bestOverallScore = 0;
+let bestOverallScore =
+    (sessionStorage.getItem("best-lines-count") || 0) *
+    (sessionStorage.getItem("best-speed") || 0) *
+    (sessionStorage.getItem("best-accuracy") || 0);
 let accuracy = 0;
 let speed = 0;
 let accuracySum = 0;
@@ -172,6 +175,15 @@ let speedSum = 0;
 
 let bgColorChangeTimer;
 let confirmedReturn = 0;
+
+byid("best-lines-count").textContent =
+    sessionStorage.getItem("best-lines-count") || 0;
+byid("best-speed").textContent = Math.floor(
+    sessionStorage.getItem("best-speed") || 0
+);
+byid("best-accuracy").textContent = Math.floor(
+    (sessionStorage.getItem("best-accuracy") || 0) * 100
+);
 
 // events
 
@@ -243,6 +255,7 @@ document.addEventListener("keydown", (e) => {
                 newKeyPressed();
                 break;
             case " ":
+                e.preventDefault();
                 byid("Space-bar").classList.add("pressed");
                 lineInput += " ";
                 newKeyPressed();
@@ -505,8 +518,8 @@ function calculatePerformance() {
         byid("best-speed").textContent = Math.floor(speed);
         byid("best-accuracy").textContent = Math.floor(accuracy * 100);
         sessionStorage.setItem("best-lines-count", curLineIndex);
-        sessionStorage.setItem("best-speed", Math.floor(speed));
-        sessionStorage.setItem("best-accuracy", Math.floor(accuracy * 100));
+        sessionStorage.setItem("best-speed", speed);
+        sessionStorage.setItem("best-accuracy", accuracy);
         bgEffect("hah");
     }
 

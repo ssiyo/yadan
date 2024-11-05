@@ -2,13 +2,18 @@
 <html>
     <head>
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5C218RQCH"></script>
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-Z5C218RQCH"
+        ></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-        gtag('config', 'G-Z5C218RQCH');
+            gtag("config", "G-Z5C218RQCH");
         </script>
         <!-- END OF Google tag -->
 
@@ -89,7 +94,7 @@
 
             #sign a {
                 padding: 0.5em;
-                font-size: 12px;
+                font-size: small;
                 text-decoration: none;
             }
             #sign a:nth-child(even) {
@@ -101,6 +106,24 @@
         </style>
         <link href="app.webmanifest" rel="manifest" />
         <script src="register-sw.js"></script>
+        <link
+            rel="preload"
+            href="./fonts/RobotoMono-Bold.ttf"
+            as="font"
+            type="font/ttf"
+        />
+        <link
+            rel="preload"
+            href="./fonts/RobotoMono-Italic.ttf"
+            as="font"
+            type="font/ttf"
+        />
+        <link
+            rel="preload"
+            href="./fonts/RobotoMono-Light.ttf"
+            as="font"
+            type="font/ttf"
+        />
     </head>
 
     <body>
