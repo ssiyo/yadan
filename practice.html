@@ -19,7 +19,6 @@
 
         <title>Yadan</title>
         <link rel="icon" type="image/png" href="icon.png" />
-        <link rel="stylesheet" href="font.css" />
         <link rel="stylesheet" href="style.css" />
         <style>
             #rhand,
@@ -44,7 +43,7 @@
             }
         </style>
 
-        <link href="app.webmanifest" rel="manifest" />
+        <link rel="preload" as="style" href="font.css" />
         <link
             rel="preload"
             href="./fonts/RobotoMono-Bold.ttf"
@@ -124,6 +123,7 @@
             as="image"
             type="image/png"
         />
+        <link href="app.webmanifest" rel="manifest" />
     </head>
 
     <body>
