@@ -2,6 +2,6 @@
 
 Touch typing tool.
 
-![2](https://github.com/user-attachments/assets/22a5e342-ec07-4952-bd71-b59aa67e3af2)
+![practice](https://github.com/user-attachments/assets/ad5918a7-baad-4ed9-8280-905eaf5cca75)
 
-![1](https://github.com/user-attachments/assets/70da922c-e4cb-441f-9cd9-9ca99747e4c1)
+![index](https://github.com/user-attachments/assets/6e90b814-ccdc-476d-9c9a-f7c0dc57f74f)
