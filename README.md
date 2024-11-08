@@ -1,4 +1,4 @@
-# <img src="https://github.com/ssiyo/yadan/blob/master/icon.png" width="36px" style="display:inline-block"> Yadan (two hands)
+# <img src="https://github.com/ssiyo/yadan/blob/main/icon.png" width="36px" style="display:inline-block"> Yadan (two hands)
 
 Touch typing tool.
 
