@@ -1,231 +1,242 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-Z5C218RQCH"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
 
-            gtag("config", "G-Z5C218RQCH");
-        </script>
-        <!-- END OF Google tag -->
-        <title>Yadan</title>
-        <link rel="icon" type="image/png" href="icon.png" />
-        <link rel="stylesheet" href="font.css" />
-        <link rel="stylesheet" href="style.css" />
-        <style>
-            #best img {
-                opacity: 1;
-            }
-            #best,
-            #best span {
-                color: yellow;
-            }
-            section {
-                border: 1px solid rgba(255, 255, 255, 0.5);
-                padding: 0.5em;
-                margin: 2em 0;
-                width: fit-content;
-                display: flex;
-                flex-direction: column;
-            }
-            section > span:first-child {
-                position: relative;
-                transform: translateY(-1.25em);
-                background-color: black;
-                padding: 0 0.5em;
-                width: fit-content;
-                border: 1px solid rgba(255, 255, 255, 0.5);
-                border-radius: 1em;
-            }
-            table {
-                border-spacing: 0;
-            }
-            td {
-                padding: 0.25em 0.5em;
-                color: inherit;
-                font-weight: bold;
-            }
-            td:nth-child(2) {
-                padding-left: 1em;
-            }
-            tr:nth-child(even) {
-                background-color: rgba(255, 255, 255, 0.4);
-            }
-            tr:nth-child(odd) {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5C218RQCH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-            button {
-                display: block;
-                margin: 0 auto;
-                padding: 1em 5em;
-                font-size: 100%;
-                font-weight: bold;
-                text-transform: uppercase;
-                border: none;
+        gtag("config", "G-Z5C218RQCH");
+    </script>
+    <!-- END OF Google tag -->
+    <title>Yadan</title>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        section {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.5em;
+            margin: 2em 0;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+        }
 
-                background-color: #333;
-                border: 1px solid white;
+        section>span:first-child {
+            position: relative;
+            transform: translateY(-1.25em);
+            background-color: black;
+            padding: 0 0.5em;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 1em;
+        }
 
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: white;
-                color: black;
-            }
+        table {
+            border-spacing: 0;
+        }
 
-            #sign {
-                display: flex;
-                align-items: center;
-                gap: 1.5em;
-                border: 1px solid rgba(255, 255, 255, 0.25);
-                width: fit-content;
-                margin-top: 2em;
-            }
+        td {
+            padding: 0.25em 0.5em;
+            color: inherit;
+            font-weight: bold;
+        }
 
-            #sign a {
-                padding: 0.5em;
-                font-size: small;
-                text-decoration: none;
-            }
-            #sign a:nth-child(even) {
-                background-color: rgba(255, 255, 255, 0.25);
-            }
-            #sign a:hover {
-                text-decoration: underline;
-            }
-        </style>
-        <link href="app.webmanifest" rel="manifest" />
-    </head>
+        td:nth-child(2) {
+            padding-left: 1em;
+        }
 
-    <body>
-        <h1 id="best">
-            <span>
-                <img src="svg/speed.svg" />
-                <span><span id="best-speed">0</span> CPM</span>
-            </span>
-            |
-            <span>
-                <img src="svg/grade.svg" />
-                <span> <span id="best-accuracy">0</span>%</span>
-            </span>
-            |
-            <span>
-                <img src="svg/menu.svg" />
-                <span><span id="best-lines-count">0</span></span>
-            </span>
-        </h1>
-        <section>
-            <span>Typing Posture:</span>
-            <ul>
-                <li>Sit up straight with your feet flat on the floor.</li>
-                <li>
-                    Maintain a comfortable distance from the keyboard and
-                    monitor.
-                </li>
-                <li>
-                    Keep your fingers relaxed and avoid excessive force when
-                    pressing keys.
-                </li>
-            </ul>
-        </section>
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
 
-        <span>Each finger is responsible for specific keys.</span>
-        <section>
-            <span>Finger-Key Assignment:</span>
-            <table>
-                <tr>
-                    <td>Left pinky</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Left ring finger</td>
-                    <td>S</td>
-                </tr>
-                <tr>
-                    <td>Left middle finger</td>
-                    <td>D</td>
-                </tr>
-                <tr>
-                    <td>Left index finger</td>
-                    <td>F</td>
-                </tr>
-                <tr>
-                    <td>Right index finger</td>
-                    <td>J</td>
-                </tr>
-                <tr>
-                    <td>Right middle finger</td>
-                    <td>K</td>
-                </tr>
-                <tr>
-                    <td>Right ring finger</td>
-                    <td>L</td>
-                </tr>
-                <tr>
-                    <td>Right pinky</td>
-                    <td>;</td>
-                </tr>
-            </table>
-        </section>
+        tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
-        <span>
-            To return to this page, press <b>[Enter]</b> 3 times consecutively.
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 1em 5em;
+            font-size: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+
+            background-color: #333;
+            border: 1px solid white;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        #sign {
+            display: flex;
+            align-items: center;
+            gap: 1.5em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            width: fit-content;
+            margin-top: 2em;
+        }
+
+        #sign a {
+            padding: 0.5em;
+            font-size: small;
+            text-decoration: none;
+        }
+
+        #sign a:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        #sign a:hover {
+            text-decoration: underline;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+        }
+    </style>
+    <link href="app.webmanifest" rel="manifest" />
+</head>
+
+<body>
+    <div id="scores-container">
+        <span class="hidden" id="current-speed"></span>
+        <span class="hidden" id="current-accuracy"></span>
+        <span class="hidden" id="current-lines-count"></span>
+
+        <span id="best-speed">
+            <img src="svg/speed.svg" />
+            <span class="num"></span>
+            <span>CPM</span>
         </span>
+        <span id="best-accuracy">
+            <img src="svg/grade.svg" />
+            <span class="num"></span>
+            <span>%</span>
+        </span>
+        <span id="best-lines-count">
+            <img src="svg/menu.svg" />
+            <span class="num"></span>
+        </span>
+    </div>
+    <section>
+        <span>Typing Posture:</span>
+        <ul>
+            <li>Sit up straight with your feet flat on the floor.</li>
+            <li>
+                Maintain a comfortable distance from the keyboard and
+                monitor.
+            </li>
+            <li>
+                Keep your fingers relaxed and avoid excessive force when
+                pressing keys.
+            </li>
+        </ul>
+    </section>
 
-        <section>
-            <span>Configuration:</span>
-            <label for="vfx">
-                <input id="vfx" type="checkbox" checked />
-                Include visuals
-            </label>
-        </section>
+    <span>Each finger is responsible for specific keys.</span>
+    <section>
+        <span>Finger-Key Assignment:</span>
+        <table>
+            <tr>
+                <td>Left pinky</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>Left ring finger</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>Left middle finger</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>Left index finger</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>Right index finger</td>
+                <td>J</td>
+            </tr>
+            <tr>
+                <td>Right middle finger</td>
+                <td>K</td>
+            </tr>
+            <tr>
+                <td>Right ring finger</td>
+                <td>L</td>
+            </tr>
+            <tr>
+                <td>Right pinky</td>
+                <td>;</td>
+            </tr>
+        </table>
+    </section>
 
-        <button onclick="startPractice()">run</button>
+    <span>
+        To return to this page, press <b>[Enter]</b> 3 times consecutively.
+    </span>
 
-        <div id="sign">
-            <a href="https://github.com/ssiyo" target="_blank"> by ssiyo </a>
-            <a href="https://github.com/ssiyo/yadan/issues/new" target="_blank">
-                feature request
-            </a>
-            <a href="https://github.com/ssiyo/yadan" target="_blank">
-                codebase
-            </a>
-        </div>
+    <section>
+        <span>Configuration:</span>
+        <label for="vfx">
+            <input id="vfx" type="checkbox" checked />
+            Include visuals
+        </label>
+    </section>
 
-        <script>
-            function byid(id) {
-                return document.getElementById(id);
-            }
-            function updateBestScore() {
-                // get values from session
-                byid("best-lines-count").textContent =
-                    sessionStorage.getItem("best-lines-count") || 0;
-                byid("best-speed").textContent = Math.floor(
-                    sessionStorage.getItem("best-speed") || 0
-                );
-                byid("best-accuracy").textContent = Math.floor(
-                    (sessionStorage.getItem("best-accuracy") || 0) * 100
-                );
-            }
-            function startPractice() {
-                sessionStorage.setItem(
-                    "include-vfx",
-                    document.getElementById("vfx").checked
-                );
-                location.href = "practice.html";
-            }
-            updateBestScore();
-        </script>
-        <!-- uncomment after editing -->
-        <!-- <script src="register-sw.js"></script> -->
-    </body>
+    <button onclick="startPractice()">run</button>
+
+    <div id="sign">
+        <a href="https://github.com/ssiyo" target="_blank"> by ssiyo </a>
+        <a href="https://github.com/ssiyo/yadan/issues/new" target="_blank">
+            feature request
+        </a>
+        <a href="https://github.com/ssiyo/yadan" target="_blank">
+            codebase
+        </a>
+    </div>
+
+    <script>
+        function byid(id) {
+            return document.getElementById(id);
+        }
+        function updateBestScore() {
+            // get values from session
+            byid("best-lines-count").querySelector(".num").textContent =
+                sessionStorage.getItem("best-lines-count") || 0;
+            byid("best-speed").querySelector(".num").textContent = Math.floor(
+                sessionStorage.getItem("best-speed") || 0
+            );
+            byid("best-accuracy").querySelector(".num").textContent = Math.floor(
+                (sessionStorage.getItem("best-accuracy") || 0) * 100
+            );
+        }
+        function startPractice() {
+            sessionStorage.setItem(
+                "include-vfx",
+                document.getElementById("vfx").checked
+            );
+            location.href = "practice.html";
+        }
+        updateBestScore();
+    </script>
+    <!-- uncomment after editing -->
+    <!-- <script src="register-sw.js"></script> -->
+</body>
+
 </html>

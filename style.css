@@ -1,6 +1,7 @@
 .hidden {
     display: none !important;
 }
+
 * {
     background-color: transparent;
     color: #ddd;
@@ -14,42 +15,61 @@ body {
     margin: 0 auto;
 }
 
-h1 {
-    margin: 0;
-    text-align: center;
-    font-size: x-large;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
+
+#scores-container {
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
-h1 > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
+#scores-container >span {
+    padding: 0.5em;
 }
-#best span,
-#best {
-    color: #550;
+
+#scores-container > span:nth-child(2),#scores-container > span:nth-child(5) {
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
-#best img {
+
+#scores-container > span:nth-child(4) *,
+#scores-container > span:nth-child(5) *,
+#scores-container > span:nth-child(6) * {
+    color: #ff0;
     opacity: 0.25;
 }
+#scores-container > span:nth-child(4) ,
+#scores-container > span:nth-child(5) ,
+#scores-container > span:nth-child(6)  {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#scores-container >span {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+#scores-container img {
+    margin-right: auto;
+}
+
 #keyboard {
     display: flex;
     flex-direction: column;
     border-top: 1px solid grey;
 }
+
 #keyboard,
 .keys-line {
     gap: 0.1em;
 }
+
 .keys-line {
     min-height: 1.5em;
     display: flex;
     justify-content: space-between;
 }
+
 .keys-line span {
     width: 100%;
     display: flex;
@@ -60,18 +80,23 @@ h1 > span {
     border: 1px solid #333;
     opacity: 0.5;
 }
+
 .pinky {
     background-color: #900;
 }
+
 .ring {
     background-color: #990;
 }
+
 .middle {
     background-color: #090;
 }
+
 .lpointer {
     background-color: #909;
 }
+
 .rpointer {
     background-color: #009;
 }
@@ -83,6 +108,7 @@ span.lpointer,
 span.rpointer {
     opacity: 1;
 }
+
 .keys-line .pressed {
     opacity: 0.2;
 }
@@ -95,16 +121,18 @@ span.rpointer {
 }
 
 /* #to-type.yah { */
-    /* no difference for accurate answers */
-    /* animation: yah 0.2s forwards; */
+/* no difference for accurate answers */
+/* animation: yah 0.2s forwards; */
 /* } */
 #to-type.nah {
     animation: nah 0.2s forwards;
 }
+
 /* HAH is for beating the top score */
 #to-type.hah {
     animation: hah 0.2s forwards;
 }
+
 @keyframes hah {
     50% {
         background-color: rgba(255, 255, 0, 0.1);
@@ -121,17 +149,21 @@ span.rpointer {
     font-size: 22px;
     margin: 0;
 }
+
 #to-type pre .correct {
     background-color: rgba(255, 255, 255, 0.1);
     opacity: 0.5;
 }
+
 #to-type pre span.incorrect {
     background-color: #500;
     opacity: 0.5;
 }
+
 #to-type pre span.current {
     border-left: 3px solid white;
 }
+
 #to-type pre span {
     padding: 0 0.2em;
     opacity: 1;
@@ -141,21 +173,26 @@ span.rpointer {
     padding-left: 1.75em;
     padding-right: 1.75em;
 }
+
 #Tab {
     padding-left: 1.25em;
     padding-right: 1.25em;
 }
+
 #LShift {
     padding: 0 0.5em;
 }
+
 #RShift {
     padding-left: 1.75em;
     padding-right: 1.75em;
 }
+
 #Space-bar {
     padding-left: 6em;
     padding-right: 6em;
 }
+
 #A,
 #S,
 #D,
@@ -171,9 +208,28 @@ img {
     min-width: 24px;
     min-height: 24px;
 }
-#RCtrl,
-#LCtrl,
-#RShift,
-#LShift {
+
+.control-key {
     font-size: 14px;
+}
+
+#rhand, #lhand {
+    background-color: transparent;
+    width: auto;
+    position: absolute;
+    transform: translateY(-7em);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#lhand {
+    left: 7em;
+}
+#rhand {
+    right: 8em;
 }

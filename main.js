@@ -38,30 +38,28 @@ for (let key in CONFIG.KEYBOARD.SHIFT_MAPPINGS) {
 // Keyboard layout
 const keyboardLayout = CONFIG.KEYBOARD.LAYOUT;
 
-// Initialize visualsIncluded based on session storage
-const visualsIncluded = sessionStorage.getItem("include-vfx") === "true";
-if (visualsIncluded){
-    byid("keyboard").classList.remove("hidden")
+// JavaScript functions related to HTML elements and styles
+function initializeKeyboard() {
+    const keyboardContainer = byid("keyboard");
+    keyboardLayout.forEach(keyRow => {
+        const rowElement = document.createElement("div");
+        rowElement.classList.add("keys-line");
+        keyRow.forEach(key => {
+            const keyElement = createKeyElement(key, rowElement);
+            assignFingerClass(keyElement, key);
+        });
+        keyboardContainer.appendChild(rowElement);
+    });
+    updateKeyVisuals();
 }
-
-// Initialize keyboard
-let isCapsLocked = true;
-const keyboardContainer = byid("keyboard");
-keyboardLayout.forEach(keyRow => {
-    const rowElement = document.createElement("div");
-    rowElement.classList.add("keys-line");
-    keyRow.forEach(key => createKeyElement(key, rowElement));
-    keyboardContainer.appendChild(rowElement);
-});
-updateKeyVisuals()
 
 // Function to create a key element
 function createKeyElement(key, rowElement) {
     const keyElement = document.createElement("span");
     keyElement.textContent = key;
     keyElement.setAttribute("id", CONFIG.KEYBOARD.ALPHABET.toLowerCase().includes(key) ? key.toUpperCase() : key);
-    assignFingerClass(keyElement, key);
     rowElement.appendChild(keyElement);
+    return keyElement;
 }
 
 // Function to assign finger class to keys
@@ -103,8 +101,17 @@ function updateKeyVisuals() {
     ["\\1", "\\2"].forEach(key => byid(key).textContent = "\\");
 }
 
+// Initialize keyboard visuals
+initializeKeyboard();
+
+// Initialize visualsIncluded based on session storage
+const visualsIncluded = sessionStorage.getItem("include-vfx") === "true";
+if (visualsIncluded){
+    byid("keyboard").classList.remove("hidden")
+}
+
 // Initialize caps lock state
-isCapsLocked = false;
+let isCapsLocked = false;
 capsLock();
 
 // Function to toggle caps lock
@@ -132,9 +139,9 @@ let bgColorChangeTimer;
 let confirmedReturn = 0;
 
 // Update best scores display
-byid("best-lines-count").textContent = sessionStorage.getItem("best-lines-count") || 0;
-byid("best-speed").textContent = Math.floor(sessionStorage.getItem("best-speed") || 0);
-byid("best-accuracy").textContent = Math.floor((sessionStorage.getItem("best-accuracy") || 0) * 100);
+byid("best-lines-count").querySelector(".num").textContent = sessionStorage.getItem("best-lines-count") || 0;
+byid("best-speed").querySelector(".num").textContent = Math.floor(sessionStorage.getItem("best-speed") || 0);
+byid("best-accuracy").querySelector(".num").textContent = Math.floor((sessionStorage.getItem("best-accuracy") || 0) * 100);
 
 // Function to handle keydown events
 document.addEventListener("keydown", (e) => {
@@ -349,9 +356,9 @@ function calculatePerformance() {
     speedSum += lineInput.length / passedMinutes;
     speed = speedSum / currentLineIndex;
 
-    byid("lines-count").textContent = currentLineIndex;
-    byid("speed").textContent = Math.floor(speed);
-    byid("accuracy").textContent = Math.floor(accuracy * 100);
+    byid("current-lines-count").querySelector(".num").textContent = currentLineIndex;
+    byid("current-speed").querySelector(".num").textContent = Math.floor(speed);
+    byid("current-accuracy").querySelector(".num").textContent = Math.floor(accuracy * 100);
 
     const overallScore = currentLineIndex * speed * accuracy;
     if (overallScore > bestOverallScore) {
@@ -366,9 +373,9 @@ function calculatePerformance() {
 
 // Function to update best scores
 function updateBestScores() {
-    byid("best-lines-count").textContent = currentLineIndex;
-    byid("best-speed").textContent = Math.floor(speed);
-    byid("best-accuracy").textContent = Math.floor(accuracy * 100);
+    byid("best-lines-count").querySelector('.num').textContent = currentLineIndex;
+    byid("best-speed").querySelector('.num').textContent = Math.floor(speed);
+    byid("best-accuracy").querySelector('.num').textContent = Math.floor(accuracy * 100);
     sessionStorage.setItem("best-lines-count", currentLineIndex);
     sessionStorage.setItem("best-speed", speed);
     sessionStorage.setItem("best-accuracy", accuracy);
@@ -380,9 +387,9 @@ function resetPerformanceTracking() {
     currentLineIndex = 0;
     accuracySum = 0;
     speedSum = 0;
-    byid("lines-count").textContent = 0;
-    byid("speed").textContent = 0;
-    byid("accuracy").textContent = 0;
+    byid("current-lines-count").querySelector(".num").textContent = 0;
+    byid("current-speed").querySelector(".num").textContent = 0;
+    byid("current-accuracy").querySelector(".num").textContent = 0;
 }
 
 // Function to generate a sentence
