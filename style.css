@@ -71,6 +71,8 @@ body {
 }
 
 .keys-line span {
+    border-radius: 8px;
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -82,23 +84,23 @@ body {
 }
 
 .pinky {
-    background-color: #900;
+    background-color: #700;
 }
 
 .ring {
-    background-color: #990;
+    background-color: #770;
 }
 
 .middle {
-    background-color: #090;
+    background-color: #070;
 }
 
 .lpointer {
-    background-color: #909;
+    background-color: #707;
 }
 
 .rpointer {
-    background-color: #009;
+    background-color: #007;
 }
 
 span.pinky,

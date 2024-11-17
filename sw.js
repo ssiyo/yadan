@@ -1,4 +1,4 @@
-const CACHE_VERSION = "2024-11-05 12:45";
+const CACHE_VERSION = "2024-11-18 00:15";
 
 // cache files list
 const cf = [
