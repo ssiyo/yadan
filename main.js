@@ -6,100 +6,33 @@ function bycss(css) {
     return document.querySelector(css);
 }
 
-const alphabetCapsLock = "QWERTYUIOPASDFGHJKLZXCVBNM";
-const keyShift = {
-    "`": "~",
-    1: "!",
-    2: "@",
-    3: "#",
-    4: "$",
-    5: "%",
-    6: "^",
-    7: "&",
-    8: "*",
-    9: "(",
-    0: ")",
-    "-": "_",
-    "=": "+",
-    "[": "{",
-    "]": "}",
-    ";": ":",
-    "'": '"',
-    ",": "<",
-    ".": ">",
-    "/": "?",
+// Configuration Constants
+const CONFIG = {
+    KEYBOARD: {
+        ALPHABET: "QWERTYUIOPASDFGHJKLZXCVBNM",
+        SHIFT_MAPPINGS: {
+            "`": "~", "1": "!", "2": "@", "3": "#", "4": "$", "5": "%",
+            "6": "^", "7": "&", "8": "*", "9": "(", "0": ")", "-": "_",
+            "=": "+", "[": "{", "]": "}", ";": ":", "'": '"', ",": "<",
+            ".": ">", "/": "?"
+        },
+        LAYOUT: [
+            ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace"],
+            ["Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "Enter1"],
+            ["CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\1", "Enter2"],
+            ["LShift", "\\2", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "RShift"],
+            ["LCtrl", "LWin", "Alt", "Space-bar", "Alt Gr", "RWin", "Menu", "RCtrl"]
+        ]
+    }
 };
-let keyShiftRe = {};
-for (let k of Object.keys(keyShift)) {
-    keyShiftRe[keyShift[k]] = k;
+
+const keyShiftRe = {};
+for (let k of Object.keys(CONFIG.KEYBOARD.SHIFT_MAPPINGS)) {
+    keyShiftRe[CONFIG.KEYBOARD.SHIFT_MAPPINGS[k]] = k;
 }
 
-const keyboardKeys = [
-    [
-        "`",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "0",
-        "-",
-        "=",
-        "Backspace",
-    ],
-    [
-        "Tab",
-        "q",
-        "w",
-        "e",
-        "r",
-        "t",
-        "y",
-        "u",
-        "i",
-        "o",
-        "p",
-        "[",
-        "]",
-        "Enter1",
-    ],
-    [
-        "CapsLock",
-        "a",
-        "s",
-        "d",
-        "f",
-        "g",
-        "h",
-        "j",
-        "k",
-        "l",
-        ";",
-        "'",
-        "\\1",
-        "Enter2",
-    ],
-    [
-        "LShift",
-        "\\2",
-        "z",
-        "x",
-        "c",
-        "v",
-        "b",
-        "n",
-        "m",
-        ",",
-        ".",
-        "/",
-        "RShift",
-    ],
-    ["LCtrl", "LWin", "Alt", "Space-bar", "Alt Gr", "RWin", "Menu", "RCtrl"],
-];
+const keyboardKeys = CONFIG.KEYBOARD.LAYOUT;
+
 const pinky = "qazp[;'/";
 const ring = "wsxol.";
 const middle = "edcik,";
@@ -114,7 +47,7 @@ for (let keyline of keyboardKeys) {
     for (let k of keyline) {
         let keySpan = document.createElement("span");
         keySpan.textContent = k;
-        if (alphabetCapsLock.toLowerCase().includes(k)) {
+        if (CONFIG.KEYBOARD.ALPHABET.toLowerCase().includes(k)) {
             keySpan.setAttribute("id", k.toUpperCase());
         } else {
             keySpan.setAttribute("id", k);
@@ -192,7 +125,7 @@ document.addEventListener("keydown", (e) => {
         pressKeys.includes(e.key.toLowerCase()) ||
         pressKeysShift.includes(e.key.toLowerCase())
     ) {
-        if (e.shiftKey && !alphabetCapsLock.includes(e.key)) {
+        if (e.shiftKey && !CONFIG.KEYBOARD.ALPHABET.includes(e.key)) {
             byid(keyShiftRe[e.key]).classList.add("pressed");
         } else {
             if (e.key == "\\") {
@@ -269,7 +202,7 @@ document.addEventListener("keyup", (e) => {
         pressKeys.includes(e.key.toLowerCase()) ||
         pressKeysShift.includes(e.key.toLowerCase())
     ) {
-        if (e.shiftKey && !alphabetCapsLock.includes(e.key)) {
+        if (e.shiftKey && !CONFIG.KEYBOARD.ALPHABET.includes(e.key)) {
             document
                 .getElementById(keyShiftRe[e.key])
                 .classList.remove("pressed");
@@ -332,14 +265,14 @@ displayTargetLines();
 
 function shiftPressed(shiftDown = true) {
     if (shiftDown) {
-        for (let k of Object.keys(keyShift)) {
-            byid(k).textContent = keyShift[k];
+        for (let k of Object.keys(CONFIG.KEYBOARD.SHIFT_MAPPINGS)) {
+            byid(k).textContent = CONFIG.KEYBOARD.SHIFT_MAPPINGS[k];
         }
 
         byid("\\1").textContent = "|";
         byid("\\2").textContent = "|";
     } else {
-        for (let k of Object.keys(keyShift)) {
+        for (let k of Object.keys(CONFIG.KEYBOARD.SHIFT_MAPPINGS)) {
             byid(k).textContent = k;
         }
 
@@ -350,11 +283,11 @@ function shiftPressed(shiftDown = true) {
 
 function capsLock() {
     if (!isCapsLocked) {
-        for (let k of alphabetCapsLock) {
+        for (let k of CONFIG.KEYBOARD.ALPHABET) {
             byid(k).textContent = k.toLowerCase();
         }
     } else {
-        for (let k of alphabetCapsLock) {
+        for (let k of CONFIG.KEYBOARD.ALPHABET) {
             byid(k).textContent = k;
         }
     }
@@ -475,8 +408,8 @@ function generateSentence() {
     for (let i = 0; i < sentenceLength; i++) {
         if (Math.random() > 0.5) {
             gen +=
-                alphabetCapsLock[
-                    parseInt(Math.random() * alphabetCapsLock.length)
+                CONFIG.KEYBOARD.ALPHABET[
+                    parseInt(Math.random() * CONFIG.KEYBOARD.ALPHABET.length)
                 ].toLowerCase();
         } else if (
             Math.random() < 0.4 &&
